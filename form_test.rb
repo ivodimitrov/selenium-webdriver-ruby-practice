@@ -1,6 +1,8 @@
-require "selenium-webdriver"
-require "chromedriver-helper"
-require "rspec"
+# frozen_string_literal: true
+
+require 'selenium-webdriver'
+require 'chromedriver-helper'
+require 'rspec'
 
 $first_name = 'John'
 $last_name = 'Doe'
@@ -27,11 +29,11 @@ def get_banner_text(driver)
   banner_text = banner.text
 end
 
-describe "automating a form" do
-  it "submits a form" do
+describe 'automating a form' do
+  it 'submits a form' do
     driver = Selenium::WebDriver.for :chrome
     driver.manage.window.maximize
-    driver.navigate.to "https://formy-project.herokuapp.com/form"
+    driver.navigate.to 'https://formy-project.herokuapp.com/form'
     submit_form(driver)
     actual_banner_text = get_banner_text(driver)
     expect(actual_banner_text).to eql($expected_banner_text)
